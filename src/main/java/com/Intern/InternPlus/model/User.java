@@ -13,26 +13,33 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Job {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String companyName;
+//    private String companyName;
+//    private String jobTitle; // job model
 
-    private String jobTitle;
-
-    private String applyLink;
+//    private String applyLink;
 
     private String domain;
 
-    private String salary;
+//    private String salary;
 
-    @ElementCollection
+    @ElementCollection  //it’s just a list of simple values
+    // (like strings) that belong to this user.
     private List<String> skills;
 
-    private LocalDate datePosted;
+
+
+    private String createdAt; // Localdate > String because postman 400
+
+    private String phoneNumber; // integer > String because postman 400
+
+
 
 
 //    public Job(){
