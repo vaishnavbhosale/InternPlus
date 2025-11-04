@@ -4,8 +4,11 @@ import com.Intern.InternPlus.service.InternshipService;
 
 import com.Intern.InternPlus.model.Internship;
 import com.Intern.InternPlus.repository.InternshipRepository;
+import com.Intern.InternPlus.service.WebScraperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 import java.util.Optional;
@@ -44,6 +47,15 @@ public class InternshipController {
     public void deleteInternship(@PathVariable Long id) {
         internshipService.deleteInternship(id);
     }
+
+    @Autowired
+    private WebScraperService webScraperService;
+
+    @GetMapping("/scrape")
+    public List<Internship> scrapeInternships() throws IOException {
+        return webScraperService.scrapeInternships();
+    }
+
 }
 
 
