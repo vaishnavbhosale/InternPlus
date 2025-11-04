@@ -2,6 +2,7 @@ package com.Intern.InternPlus.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -41,8 +42,18 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/internships").permitAll() // everyone can view internships
-                        .requestMatchers("/api/internships/**").hasRole("ADMIN") // only admin can add/delete
+
+                        // for users
+
+                        .requestMatchers(HttpMethod.GET,"/api/users").hasRole("ADMIN") // only admin can view all users
+                        .requestMatchers(HttpMethod.POST,"/api/users").permitAll() // anyone can register
+
+                        // for internships
+
+                        .requestMatchers(HttpMethod.GET,"/api/internships").permitAll() // everyone can view internships
+                        .requestMatchers(HttpMethod.DELETE,"/api/internships/**").hasRole("ADMIN") // only admin can delete
+                        .requestMatchers(HttpMethod.POST,"/api/users").hasRole("ADMIN") // only admin can add
+
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.permitAll())
