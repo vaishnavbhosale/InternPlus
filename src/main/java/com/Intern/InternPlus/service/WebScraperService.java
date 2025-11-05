@@ -6,6 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -48,5 +49,16 @@ public class WebScraperService {
 
         return internships;
     }
+    @Scheduled(cron = "0 0 */6 * * *")  // runs every 6 hours
+    public void runScraperAutomatically() {
+        try {
+            System.out.println(" Auto scraper started...");
+            scrapeInternships(); // reuse your existing scraper
+            System.out.println("Auto scraper finished successfully.");
+        } catch (Exception e) {
+            System.out.println(" Auto scraper failed: " + e.getMessage());
+        }
+    }
+
 }
 

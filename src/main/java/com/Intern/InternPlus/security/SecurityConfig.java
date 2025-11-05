@@ -54,7 +54,7 @@ public class SecurityConfig {
 
                         .requestMatchers(HttpMethod.GET,"/api/internships").permitAll() // everyone can view internships
                         .requestMatchers(HttpMethod.DELETE,"/api/internships/**").hasRole("ADMIN") // only admin can delete
-                        .requestMatchers(HttpMethod.POST,"/api/users").hasRole("ADMIN") // only admin can add
+                        .requestMatchers(HttpMethod.POST,"/api/internships").hasRole("ADMIN") // only admin can add
 
                         .anyRequest().authenticated()
                 )
@@ -63,6 +63,7 @@ public class SecurityConfig {
 
         return http.build();
     }
-}
+
 
 }
+

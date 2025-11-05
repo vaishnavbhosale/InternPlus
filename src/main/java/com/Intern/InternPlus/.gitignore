@@ -1,0 +1,13 @@
+# Ignore H2 database files
+*.mv.db
+*.trace.db
+/data/
+
+# IntelliJ + Gradle
+.idea/
+out/
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
