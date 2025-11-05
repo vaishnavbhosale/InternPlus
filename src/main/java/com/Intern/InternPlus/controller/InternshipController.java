@@ -3,7 +3,6 @@ package com.Intern.InternPlus.controller;
 import com.Intern.InternPlus.service.InternshipService;
 
 import com.Intern.InternPlus.model.Internship;
-import com.Intern.InternPlus.repository.InternshipRepository;
 import com.Intern.InternPlus.service.WebScraperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

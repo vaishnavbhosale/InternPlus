@@ -1,7 +1,6 @@
 package com.Intern.InternPlus.service;
 
 import com.Intern.InternPlus.model.User;
-import com.Intern.InternPlus.repository.InternshipRepository;
 import com.Intern.InternPlus.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

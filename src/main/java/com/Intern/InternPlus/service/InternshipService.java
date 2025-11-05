@@ -1,5 +1,4 @@
 package com.Intern.InternPlus.service;
-import com.Intern.InternPlus.controller.InternshipController;
 import com.Intern.InternPlus.model.Internship;
 import com.Intern.InternPlus.repository.InternshipRepository;
 import org.springframework.stereotype.Service;
